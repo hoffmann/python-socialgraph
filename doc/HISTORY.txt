@@ -1,0 +1,8 @@
+Changelog
+=========
+
+0.2.3 - 18 Feb 2010
+-------------------
+
+* Initial public release on http://pypi.python.org
+
