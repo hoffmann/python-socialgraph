@@ -40,13 +40,17 @@ class Api(object):
         The lookup method gives you low-level access to the Social Graph API's
         underlying directed graph. It lets you list all the edges out of or
         into a given node.
-        
-        q   Comma-separated list of URIs    Which nodes the social graph to query
-        edo	boolean	                        Return edges out from returned nodes
-        edi	boolean	                        Return edges in to returned nodes
-        fme	boolean	                        Follow me links, also returning reachable nodes
-        pretty boolean	                    Pretty-print returned JSON
-        sgn	boolean	                        Return internal representation of nodes
+       
+        Args:
+            q:   Comma-separated list of URIs  Which nodes the social graph to query.
+            edo:	boolean	                   Return edges out from returned nodes.
+            edi:	boolean	                   Return edges in to returned nodes.
+            fme:	boolean	                   Follow me links, also returning reachable nodes.
+            pretty: boolean	                   Pretty-print returned JSON.
+            sgn:	boolean	                   Return internal representation of nodes.
+
+        Returns:
+            dict
 
         see: http://code.google.com/apis/socialgraph/docs/lookup.html
         """
@@ -60,11 +64,12 @@ class Api(object):
         The otherme method gives you an easy way to query a person's other
         idenfitiers (e.g. URLs) based on one or more identifiers for that
         person that you do know.
-
-        q	    Comma-separated list of URIs.	The identifiers (URLs, emails, etc) which you 
-                                                do know for the person.
-        pretty	boolean	                        Pretty-print returned JSON.
-        sgn 	boolean	                        Return internal representation of nodes
+        
+        Args:
+            q	    Comma-separated list of URIs.	The identifiers (URLs, emails, etc) which you 
+                                                    do know for the person.
+            pretty	boolean	                        Pretty-print returned JSON.
+            sgn 	boolean	                        Return internal representation of nodes
 
 
         see: http://code.google.com/apis/socialgraph/docs/otherme.html
@@ -76,11 +81,12 @@ class Api(object):
 
     def testparse(self, url, body, contentType="text/html", urlFormat="base"):
         """test your site's XFN or FOAF to see what the Social Graph API's parsers find in it
-        
-        url         The hypothetical URL.
-        body        Required. The document body.
-        contentType Required. The Content-Type header, possibly including a charset.
-        urlFormat   Optional One of "raw", "sgn" or "base"
+       
+        Args:
+            url         The hypothetical URL.
+            body        Required. The document body.
+            contentType Required. The Content-Type header, possibly including a charset.
+            urlFormat   Optional One of "raw", "sgn" or "base"
 
         see: http://code.google.com/apis/socialgraph/docs/testparse.html
         """
