@@ -34,7 +34,7 @@ class Api(object):
         self._last_request = dict(url=url, params=params, res=resp, content=content, method="GET")
         return cjson.decode(content)
 
-    def lookup(self, q, edo=1, edi=0, fme=0, pretty=1, sgn=0):
+    def lookup(self, q, edo=1, edi=0, fme=0, pretty=1, sgn=0, jme=0):
         """ query the social graph API
         
         The lookup method gives you low-level access to the Social Graph API's
@@ -48,6 +48,7 @@ class Api(object):
             fme:	boolean	                   Follow me links, also returning reachable nodes.
             pretty: boolean	                   Pretty-print returned JSON.
             sgn:	boolean	                   Return internal representation of nodes.
+            jme:    boolean                    Filter edges returned by edo and edi to only return me edges.
 
         Returns:
             dict
@@ -55,7 +56,7 @@ class Api(object):
         see: http://code.google.com/apis/socialgraph/docs/lookup.html
         """
         baseurl = "http://socialgraph.apis.google.com/lookup"
-        return self._get(baseurl, dict(q=q, edo=edo, edi=edi, fme=fme, pretty=pretty, sgn=sgn))
+        return self._get(baseurl, dict(q=q, edo=edo, edi=edi, fme=fme, pretty=pretty, sgn=sgn, jme=jme))
 
 
     def otherme(self, q, pretty=1, sgn=0):
